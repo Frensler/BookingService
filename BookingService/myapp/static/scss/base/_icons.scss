@@ -1,0 +1,12 @@
+@import "../index";
+
+.greenIcon {
+  color: $secondary;
+  font-size: $x-large;
+  padding: 1rem;
+  transition: 0.2s all;
+
+  &:hover {
+    color: $primary-font;
+  }
+}

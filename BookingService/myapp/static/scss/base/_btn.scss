@@ -1,0 +1,39 @@
+@import "../index";
+
+.btn {
+  padding: 1rem;
+  display: flex;
+  text-decoration: none;
+  font-size: 1.33rem;
+  transition: 0.2s all;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+
+  &--text {
+    padding: 0 0.5rem 0 0.5rem;
+  }
+
+  &--width50 {
+    width: 50%;
+  }
+  &--width75 {
+    width: 75%;
+  }
+  
+  &--green {
+    color: $primary-font;
+    &:hover {
+      background-color: $secondary;
+      color: $secondary-font;
+    }
+  }
+
+  &--primaryBorder {
+    border: 1px solid $primary;
+  }
+
+  &--secondaryBorder {
+    border: 1px solid $secondary;
+  }
+}

@@ -1,0 +1,44 @@
+@import "../index";
+
+.card {
+  display: flex;
+    flex: 100%;
+    max-width: 94%;
+    min-height: 15vh;
+    margin: 1rem 0;
+    padding: 1rem;
+    box-shadow: rgb(9 30 66 / 25%) 0px 4px 8px -2px, rgb(9 30 66 / 8%) 0px 0px 0px 1px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+  & > i {
+    font-size: $xx-large;
+    margin-right: 2rem;
+  }
+
+  &__p {
+    margin: 1.5rem;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    font-size: $large;
+
+    &:last-child{
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__text {
+    padding-left: 0.5rem;
+  }
+
+  &--free {
+    background-color: $secondary;
+    color: $secondary-font;
+  }
+  &--occupied {
+    background-color: $primary;
+    color: $primary-font;
+  }
+}

@@ -1,0 +1,119 @@
+@import "../index";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  font-size: $large;
+
+  &--width100 {
+    width: 100%;
+  }
+
+  &__checkbox {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: white;
+    height: $larger;
+    width: $larger;
+    border: 1px solid $secondary;
+    color: $secondary;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    &:checked {
+      background: $secondary;
+      color: $secondary;
+    }
+
+    &:after {
+      content: " ";
+      position: relative;
+      left: 40%;
+      top: 15%;
+      width: 30%;
+      height: 80%;
+      border: solid $secondary-font;
+      border-width: 0 2px 2px 0;
+      transform: rotate(50deg);
+      display: none;
+    }
+    &:checked:after {
+      display: block;
+    }
+  }
+
+  & select {
+    background: none;
+    border: none;
+    margin: 0.2rem 0;
+    padding: 0.5rem;
+    font-size: $medium;
+    color: $secondary;
+    border-bottom: 1px solid $secondary;
+  }
+
+  & option {
+    border: none;
+    margin: 0.2rem 0;
+    padding: 0.5rem;
+    font-size: $medium;
+    color: $secondary;
+    border-bottom: 1px solid $secondary;
+  }
+
+  &__input {
+    border: none;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    font-size: $medium;
+    color: $secondary;
+    border-bottom: 1px solid $secondary;
+  }
+
+  &__btn {
+    border: none;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-decoration: none;
+    font-size: $large;
+    transition: 0.2s all;
+    background: none;
+    border: 1px solid $secondary;
+    color: $secondary;
+    margin-top: 2rem;
+
+    &--zeroMargin {
+      margin: 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+      border-color: transparent;
+      outline-color: transparent;
+      background: $secondary;
+      color: $secondary-font;
+    }
+  }
+
+  & button[type="submit"] {
+    border: none;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-decoration: none;
+    font-size: $large;
+    transition: 0.2s all;
+
+    &:hover {
+      cursor: pointer;
+      border-color: transparent;
+      outline-color: transparent;
+    }
+  }
+}

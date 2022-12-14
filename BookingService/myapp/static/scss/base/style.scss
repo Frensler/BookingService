@@ -1,0 +1,22 @@
+@import "../index";
+@import './actionbar';
+@import './btn';
+@import './card';
+@import './content';
+@import './form';
+@import './icons';
+@import './nav';
+@import './tab';
+@import './table';
+
+* {
+  top: 0;
+  left: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $regular-font;
+}
+
+html {
+  font-size: $medium;
+}

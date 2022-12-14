@@ -1,0 +1,37 @@
+@import "../index";
+
+.table {
+  width: 95%;
+  border-collapse: collapse;
+
+  &--row {
+    width: 100%;
+    margin-top: 0.2rem;
+    border: 2px solid $secondary;
+    color: $secondary-font;
+    background-color: $secondary;
+
+    &:nth-child(even) {
+      background-color: $primary;
+      color: $primary-font;
+    }
+  }
+  
+  &--data {
+    font-size: $large;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 20%;
+
+    &:last-child {
+      background-color: $primary;
+    }
+  }
+  
+  &--header {
+    padding: 1rem;
+    font-size: $larger;
+    text-align: center;
+  }
+}

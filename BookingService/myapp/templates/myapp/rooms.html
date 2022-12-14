@@ -1,0 +1,34 @@
+{% extends "myapp/base.html" %} {% block title %} Lista pokoi {% endblock %}
+{% block content %}
+<div class="actionbar">
+  <div class="actionbar--left">
+    <div class="actionbar--gridBlock">
+      <a href="/"><i class="fas fa-arrow-left greenIcon"></i></a>
+      <h1 class="actionbar--header">Lista pokoi</h1>
+    </div>
+  </div>
+  <div class="actionbar--right">
+    <i class="fas fa-plus"></i><span class="btn--text">Dodaj pokój</span></a
+  >
+  </div>
+</div>
+<div class="content">
+  <div
+    class="card {% if room.occupied == False %}card--free{% else %}card--occupied{% endif %}"
+  >
+    <i
+      class="fas {% if room.occupied == False %}fa-door-open{% else %}fa-door-closed{% endif %}"
+    ></i>
+    <p class="card__p">
+      <span class="card__text">Numer pokoju: {{room.number}} </span>
+    </p>
+    <p class="card__p">
+  <span class="card__text">Cena za dobę: {{room.price}}</span>
+    </p>
+    <a
+      class="btn {% if room.occupied == False %}card--free btn--primaryBorder btn--width50{% else %}btn--width50 card--occupied btn--secondaryBorder{% endif %}"
+      ><i class="fas fa-info"></i><span class="btn--text">Zobacz szczegóły</span></a
+    >
+  </div>
+</div>
+{% endblock %}

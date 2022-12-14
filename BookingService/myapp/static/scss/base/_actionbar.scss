@@ -1,0 +1,28 @@
+@import '../index';
+
+.actionbar {
+    height: 15vh;
+    width: 94%;
+    display: flex;
+    align-items: center;
+    margin: 0 2.5%;
+    justify-content: space-between;
+  
+    &--left {
+      justify-content: flex-start;
+    }
+  
+    &--right {
+      justify-content: flex-end;
+    }
+    &--gridBlock {
+      display: grid;
+      grid-template-columns: 4rem 1fr;
+    }
+    &--header {
+      color: $secondary;
+      font-size: $x-large;
+      padding: 1rem;
+    }
+  }
+  
