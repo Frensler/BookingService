@@ -28,3 +28,6 @@ def checkOut(request, roomId):
         room.occupied = False
         room.save()
     return HttpResponseRedirect(reverse('rooms'))
+def reservations_index(request):
+    context = { "reservations": Reservation.objects.all()}
+    return render(request,"myapp/reservations.html",context)

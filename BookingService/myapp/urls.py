@@ -7,4 +7,5 @@ urlpatterns = [
     path('rooms/', views.rooms_index, name='rooms'),
     path('rooms/<int:roomId>', views.roomDetails_index, name='roomDetails'),
     path('rooms/<int:roomId>/checkOut', views.checkOut, name='checkOut'),
+    path('reservations/', views.reservations_index, name='reservations')
 ]

@@ -25,6 +25,6 @@ class ReservationForm(forms.ModelForm):
             'dataTo': forms.TextInput(attrs={'class': 'form__input'})
         }
         labels = {
-            'dateFrom': 'Date zameldowania',
-            'dataTo': 'Date wymeldowania'
+            'dateFrom': 'Data zameldowania',
+            'dataTo': 'Data wymeldowania'
         }
