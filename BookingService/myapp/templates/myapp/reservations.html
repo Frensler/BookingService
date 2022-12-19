@@ -1,0 +1,39 @@
+@@ -0,0 +1,38 @@
+{% extends "myapp/base.html" %} {% block title %} Lista rezerwacji 
+{% endblock %} {% block content %}
+<div class="actionbar actionbar--left">
+  <a href="/"><i class="fas fa-arrow-left greenIcon"></i></a>
+  <h1 class="actionbar--header">Lista rezerwacji</h1>
+</div>
+<div class="content">
+  <table class="table">
+    <tr class="table--row">
+      <th class="table--header">ID</th>
+      <th class="table--header">Numer pokoju</th>
+      <th class="table--header">Data początku rezerwacji</th>
+      <th class="table--header">Data końcowa rezerwacji</th>
+      <th class="table--header">Klient</th>
+      <th class="table--header">Akcja</th>
+    </tr>
+
+    <tr class="table--row">
+      <td class="table--data">{{reservation.id}}</td>
+      <td class="table--data">{{reservation.room.number}}</td>
+      <td class="table--data">{{reservation.dateFrom}}</td>
+      <td class="table--data">{{reservation.dataTo}}</td>
+      <td class="table--data">
+      </td>
+      <td class="table--data">
+        <form class="form form--width100 form__btn--zeroMargin"
+              method="POST">
+            {% csrf_token %}
+            <!--<input class="form__btn form__btn--zeroMargin" type="submit" value="Delete" />-->
+                {% csrf_token %}
+                <button class="btn btn--green" type="submit">Wymelduj</button>
+            </form>
+        </form>
+      </td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
