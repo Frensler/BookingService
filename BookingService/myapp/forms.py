@@ -1,5 +1,5 @@
 from django import forms
-from .models import Room
+from .models import Room, Reservation
 
 class RoomForm(forms.ModelForm):
     class Meta:
