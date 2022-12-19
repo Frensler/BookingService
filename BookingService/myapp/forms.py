@@ -16,3 +16,15 @@ class RoomForm(forms.ModelForm):
             'occupied': '',
             'number': 'Numer pokoju',
         }
+class ReservationForm(forms.ModelForm):
+    class Meta:
+        model = Reservation
+        fields = ['dateFrom', 'dataTo']
+        widgets = {
+            'dateFrom': forms.TextInput(attrs={'class': 'form__input'}),
+            'dataTo': forms.TextInput(attrs={'class': 'form__input'})
+        }
+        labels = {
+            'dateFrom': 'Date zameldowania',
+            'dataTo': 'Date wymeldowania'
+        }
