@@ -1,5 +1,5 @@
 from django import forms
-from .models import Room, Reservation
+from .models import Room, Client, Reservation
 
 class RoomForm(forms.ModelForm):
     class Meta:
@@ -27,4 +27,21 @@ class ReservationForm(forms.ModelForm):
         labels = {
             'dateFrom': 'Date zameldowania',
             'dataTo': 'Date wymeldowania'
+        }
+
+class ClientForm(forms.ModelForm):
+    class Meta:
+        model = Client
+        fields = '__all__'
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form__input'}),
+            'last_name': forms.TextInput(attrs={'class': 'form__input'}),
+            'birth_date': forms.DateInput(attrs={'class': 'form__input'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form__input'}),
+        }
+        labels = {
+            'first_name': 'Imię',
+            'last_name': 'Nazwisko',
+            'birth_date': 'Data urodzenia (DD/MM/RRRR)',
+            'phone_number': 'Numer telefonu',
         }
