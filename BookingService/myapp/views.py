@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib import messages
 
-from .models import Room,Reservation
-from .forms import RoomForm,ReservationForm
+from .models import Room, Client, Reservation
+from .forms import RoomForm, ClientForm, ReservationForm
 
 def index(request):
     return render(request,"myapp/base.html")
@@ -32,3 +32,7 @@ def checkOut(request, roomId):
 def reservations_index(request):
     context = { "reservations": Reservation.objects.all()}
     return render(request,"myapp/reservations.html",context)
+
+def clients_index(request):
+    context = { "clients": Client.objects.all()}
+    return render(request,"myapp/clients.html",context)
