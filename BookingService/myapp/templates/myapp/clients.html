@@ -1,0 +1,44 @@
+{% extends "myapp/base.html" %} {% block title %} Lista klientów {% endblock %}
+{% block content %}
+<div class="actionbar">
+  <div class="actionbar--left">
+    <div class="actionbar--gridBlock">
+      <a href="/"><i class="fas fa-arrow-left greenIcon"></i></a>
+      <h1 class="actionbar--header">Klienci</h1>
+    </div>
+
+  </div>
+  <div class="actionbar--right">
+    ><i class="fas fa-plus"></i
+    ><span class="btn--text">Dodaj nowego klienta</span></a
+  >
+  </div>
+</div>
+<div class="content">
+  <table class="table">
+    <tr class="table--row">
+      <th class="table--header">Imię</th>
+      <th class="table--header">Nazwisko</th>
+      <th class="table--header">Data urodzenia</th>
+      <th class="table--header">Nr telefonu</th>
+      <th class="table--header">Akcja</th>
+    </tr>
+
+    <tr class="table--row">
+      <td class="table--data">{{client.first_name}}</td>
+      <td class="table--data">{{client.last_name}}</td>
+      <td class="table--data">{{client.birth_date}}</td>
+      <td class="table--data">{{client.phone_number}}</td>
+      <td class="table--data">
+        <form
+          class="form form--width100 form__btn--zeroMargin"
+          method="POST"
+        >
+          {% csrf_token %}
+          <input class="form__btn form__btn--zeroMargin" type="submit" value="Usuń dane uzytkownika" />
+        </form>
+      </td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
