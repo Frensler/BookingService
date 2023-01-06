@@ -1,0 +1,13 @@
+{% extends "myapp/base.html" %} {% block title %} Dodaj nowy pokój {% endblock %}
+{% block content %}
+<div class="actionbar actionbar--left">
+  <a href="{% url 'rooms' %}"><i class="fas fa-arrow-left greenIcon"></i></a>
+  <h1 class="actionbar--header">Dodaj nowy pokój</h1>
+</div>
+<div class="content">
+  <form class="form" action="{% url 'addNewRoom' %}" method="post">
+    {% csrf_token %} {{form}}
+    <input class="form__btn" type="submit" value="Dodaj" />
+  </form>
+</div>
+{% endblock %}
