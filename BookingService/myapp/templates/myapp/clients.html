@@ -9,9 +9,7 @@
 
   </div>
   <div class="actionbar--right">
-    ><i class="fas fa-plus"></i
-    ><span class="btn--text">Dodaj nowego klienta</span></a
-  >
+    <a class="btn btn--green" href="{% url 'newClient' %}"><i class="fas fa-plus"></i><span class="btn--text">Dodaj nowego klienta</span></a>
   </div>
 </div>
 <div class="content">
@@ -24,14 +22,17 @@
       <th class="table--header">Akcja</th>
     </tr>
 
+    {% for client in clients %}
     <tr class="table--row">
       <td class="table--data">{{client.first_name}}</td>
       <td class="table--data">{{client.last_name}}</td>
       <td class="table--data">{{client.birth_date}}</td>
       <td class="table--data">{{client.phone_number}}</td>
       <td class="table--data">
+        <a class="form__btn form__btn--zeroMargin" href="{% url 'editClient' client.id %}">Edytuj</a>
         <form
           class="form form--width100 form__btn--zeroMargin"
+          action="{% url 'deleteClient' client.id %}"
           method="POST"
         >
           {% csrf_token %}
@@ -39,6 +40,7 @@
         </form>
       </td>
     </tr>
+    {% endfor %}
   </table>
 </div>
 {% endblock %}
