@@ -9,4 +9,7 @@ urlpatterns = [
     path('rooms/<int:roomId>/checkOut', views.checkOut, name='checkOut'),
     path('reservations/', views.reservations_index, name='reservations'),
     path('clients/', views.clients_index, name='clients'),
+    path('clients/edit/<int:clientId>', views.addOrEditClient_index, name='editClient'),
+    path('clients/new', views.addOrEditClient_index, name='newClient'),
+    path('clients/delete/<int:clientId>', views.deleteClient, name='deleteClient'),
 ]
