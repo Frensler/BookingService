@@ -10,6 +10,7 @@ from .forms import RoomForm, ClientForm, ReservationForm
 def index(request):
     return render(request,"myapp/base.html")
 
+#Rooms part start
 def rooms_index(request):
     context = { "rooms": Room.objects.all()} #context, ktory przekazemy do widoku
     return render(request,"myapp/rooms.html",context)
@@ -28,7 +29,19 @@ def checkOut(request, roomId):
         room.occupied = False
         room.save()
     return HttpResponseRedirect(reverse('rooms'))
-    
+
+def addNewRoom_index(request):
+    if request.method == "POST":
+        form = RoomForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('rooms'))
+    else:    
+        form = RoomForm()
+        return render(request,"myapp/addNewRoom.html", {'form': form})
+#Rooms part end
+
+
 def reservations_index(request):
     context = { "reservations": Reservation.objects.all()}
     return render(request,"myapp/reservations.html",context)

@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index),
     path('rooms/', views.rooms_index, name='rooms'),
     path('rooms/<int:roomId>', views.roomDetails_index, name='roomDetails'),
+    path('rooms/addNewRoom', views.addNewRoom_index, name='addNewRoom'),
     path('rooms/<int:roomId>/checkOut', views.checkOut, name='checkOut'),
     path('reservations/', views.reservations_index, name='reservations'),
     path('clients/', views.clients_index, name='clients'),
