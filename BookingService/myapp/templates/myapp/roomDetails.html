@@ -1,0 +1,35 @@
+{% extends "myapp/base.html" %} {% block title %} Pokój numer {{room.number}}
+{%endblock %} {% block content %}
+<div class="actionbar">
+  <div class="actionbar--left">
+    <div class="actionbar--gridBlock">
+      <a href="{% url 'rooms' %}"><i class="fas fa-arrow-left greenIcon"></i></a>
+      <h1 class="actionbar--header">Pokój numer {{room.number}}</h1>
+    </div>
+  </div>
+  <div class="actionbar--right">
+    {% if room.occupied == True %}
+    <form class="form" style="width: auto;" action="{% url 'checkOut' room.id %}" method="POST">
+      {% csrf_token %}
+      <button class="btn btn--green" type="submit">Wymelduj</button>
+    </form>
+    {% else %}
+    <a class="btn btn--green" href="{% url 'checkIn' room.id %}">Zamelduj</a>
+    {% endif %}
+  </div>
+</div>
+<div class="content">
+  <div class="tab">
+    <p class="tab--icon"><span>Cena:</span></p>
+    <p class="tab--text">{{room.price}}</p>
+  </div>
+  <div class="tab">
+    <p class="tab--icon">
+      <span>Status:</span>
+    </p>
+    <p class="tab--text {% if room.occupied == False %}card--free{% else %}card--occupied{% endif %}">
+      {% if room.occupied == False %}Wolny{% else %}Zajęty{% endif %}
+    </p>
+  </div>
+</div>
+{% endblock %}
