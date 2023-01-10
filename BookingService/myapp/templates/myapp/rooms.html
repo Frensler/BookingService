@@ -29,6 +29,7 @@
     </p>
     <a
       class="btn {% if room.occupied == False %}card--free btn--primaryBorder btn--width50{% else %}btn--width50 card--occupied btn--secondaryBorder{% endif %}"
+      href="{% url 'roomDetails' room.id %}"
       ><i class="fas fa-info"></i><span class="btn--text">Zobacz szczegóły</span></a
     >
   </div>
