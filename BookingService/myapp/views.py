@@ -23,6 +23,35 @@ def roomDetails_index(request,roomId):
     room = get_object_or_404(Room,id=roomId)
     return render(request,"myapp/roomDetails.html", {"room":room})
 
+def checkIn(request, roomId):
+    if request.method == "POST":
+        formReservation = ReservationForm(request.POST)
+        if formReservation.is_valid():
+            dateFrom=formReservation.cleaned_data.get("dateFrom")
+            dateTo=formReservation.cleaned_data.get("dataTo")
+            if ( dateFrom == datetime.date.today() and dateTo > datetime.date.today()):
+                room = get_object_or_404(Room,id=roomId)     
+                reservation = Reservation(dateFrom=dateFrom,dataTo=dateTo,client=formReservation.cleaned_data.get("client"),room=room)
+                reservation.save()
+                room.occupied = True
+                room.save()
+                return HttpResponseRedirect(reverse('rooms'))
+            else:
+                messages.error(request, 'Form is not valid!')
+                room = get_object_or_404(Room,id=roomId)
+                formReservation = ReservationForm()
+                return render(request,"myapp/roomCheckIn.html", {'room':room, 'formReservation': formReservation})
+
+        else:
+            messages.error(request, 'Form is not valid!')
+            room = get_object_or_404(Room,id=roomId)
+            formReservation = ReservationForm()
+            return render(request,"myapp/roomCheckIn.html", {'room':room, 'formReservation': formReservation})
+    else:
+        room = get_object_or_404(Room,id=roomId)
+        formReservation = ReservationForm()
+        return render(request,"myapp/roomCheckIn.html", {'room':room, 'formReservation': formReservation})
+
 def checkOut(request, roomId):
     if request.method == "POST":
         room = Room.objects.get(id=roomId)
