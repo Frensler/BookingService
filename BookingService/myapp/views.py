@@ -75,6 +75,23 @@ def reservations_index(request):
     context = { "reservations": Reservation.objects.all()}
     return render(request,"myapp/reservations.html",context)
 
+def editReservation_index(request,reservationId):
+    if reservationId:
+        reservation = get_object_or_404(Reservation, pk=reservationId)
+    form = ReservationForm(request.POST or None, instance=reservation)
+    if request.POST and form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('reservations'))
+    return render(request,"myapp/editReservation.html", {'reservationId': reservationId or None, 'form': form})
+
+def deleteReservation(request, reservationId):
+    if request.method == "POST":
+        reservation = Reservation.objects.get(id=reservationId)
+        reservation.room.occupied = False
+        reservation.room.save()
+        reservation.delete()
+    return HttpResponseRedirect(reverse('reservations'))
+
 def clients_index(request):
     context = { "clients": Client.objects.all()}
     return render(request,"myapp/clients.html",context)
