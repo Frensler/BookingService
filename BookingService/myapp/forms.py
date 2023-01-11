@@ -28,7 +28,7 @@ class ReservationForm(forms.ModelForm):
         labels = {
             'dateFrom': 'Date zameldowania',
             'dataTo': 'Date wymeldowania'
-            
+
         }
 
 class ClientForm(forms.ModelForm):
@@ -44,6 +44,6 @@ class ClientForm(forms.ModelForm):
         labels = {
             'first_name': 'Imię',
             'last_name': 'Nazwisko',
-            'birth_date': 'Data urodzenia (DD/MM/RRRR)',
+            'birth_date': 'Data urodzenia (MM/DD/RRRR)',
             'phone_number': 'Numer telefonu',
         }
