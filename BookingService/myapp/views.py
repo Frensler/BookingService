@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib import messages
 
+import datetime
+
 from .models import Room, Client, Reservation
 from .forms import RoomForm, ClientForm, ReservationForm
 

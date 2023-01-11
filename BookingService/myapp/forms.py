@@ -19,14 +19,16 @@ class RoomForm(forms.ModelForm):
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
-        fields = ['dateFrom', 'dataTo']
+        fields = ['dateFrom', 'dataTo', 'client']
         widgets = {
             'dateFrom': forms.TextInput(attrs={'class': 'form__input'}),
-            'dataTo': forms.TextInput(attrs={'class': 'form__input'})
+            'dataTo': forms.TextInput(attrs={'class': 'form__input'}),
+
         }
         labels = {
             'dateFrom': 'Date zameldowania',
             'dataTo': 'Date wymeldowania'
+            
         }
 
 class ClientForm(forms.ModelForm):
