@@ -14,4 +14,7 @@ urlpatterns = [
     path('clients/edit/<int:clientId>', views.addOrEditClient_index, name='editClient'),
     path('clients/new', views.addOrEditClient_index, name='newClient'),
     path('clients/delete/<int:clientId>', views.deleteClient, name='deleteClient'),
+    path('reservations/edit/<int:reservationId>', views.editReservation_index, name='editReservation'),
+    path('reservations/delete/<int:reservationId>', views.deleteReservation, name='deleteReservation'),
+
 ]
